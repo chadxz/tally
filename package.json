@@ -4,6 +4,9 @@
   "description": "Keep a tally of whatever you want.",
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
+  "scripts": {
+    "update-deps": "NPM_CHECK_INSTALLER=pnpm pnpx npm-check -u"
+  },
   "devDependencies": {
     "nx": "^19.3.2"
   }
