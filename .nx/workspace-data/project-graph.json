@@ -1,12 +1,12 @@
 {
   "nodes": {
-    "web": {
-      "name": "web",
+    "@tally/web": {
+      "name": "@tally/web",
       "type": "lib",
       "data": {
         "root": "apps/web",
         "sourceRoot": "apps/web",
-        "name": "web",
+        "name": "@tally/web",
         "tags": [
           "npm:private"
         ],
@@ -3349,7 +3349,63 @@
     }
   },
   "dependencies": {
-    "web": [],
+    "@tally/web": [
+      {
+        "source": "@tally/web",
+        "target": "npm:typescript",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:@types/node",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:@types/react",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:@types/react-dom",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:postcss@8.4.38",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:tailwindcss",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:eslint",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:eslint-config-next",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:react-dom",
+        "type": "static"
+      },
+      {
+        "source": "@tally/web",
+        "target": "npm:next",
+        "type": "static"
+      }
+    ],
     "npm:@eslint-community/eslint-utils": [
       {
         "source": "npm:@eslint-community/eslint-utils",
