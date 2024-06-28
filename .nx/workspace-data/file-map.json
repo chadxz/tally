@@ -1,0 +1,121 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.3.2",
+  "deps": {
+    "nx": "19.3.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "12255854052938283674"
+      },
+      {
+        "file": "package.json",
+        "hash": "2243783673667700051"
+      },
+      {
+        "file": "nx",
+        "hash": "17165975525224888679"
+      },
+      {
+        "file": ".nx/nxw.js",
+        "hash": "11254603345854076312"
+      },
+      {
+        "file": ".prototools",
+        "hash": "14119353712258877099"
+      },
+      {
+        "file": "nx.json",
+        "hash": "2172972036086153803"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "8280355779105591338"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".nx/installation/package-lock.json",
+        "hash": "4221222842735832085"
+      },
+      {
+        "file": ".nx/installation/package.json",
+        "hash": "2847397664424869792"
+      },
+      {
+        "file": "README.md",
+        "hash": "11471064470672611227"
+      },
+      {
+        "file": ".idea/workspace.xml",
+        "hash": "16085299435573095594"
+      }
+    ],
+    "projectFileMap": {
+      "web": [
+        {
+          "file": "apps/web/.eslintrc.json",
+          "hash": "10616060546436571437"
+        },
+        {
+          "file": "apps/web/.gitignore",
+          "hash": "15751075988610075934"
+        },
+        {
+          "file": "apps/web/README.md",
+          "hash": "12205685531602560652"
+        },
+        {
+          "file": "apps/web/next.config.mjs",
+          "hash": "6567081978241091914"
+        },
+        {
+          "file": "apps/web/package.json",
+          "hash": "10218468354998040200"
+        },
+        {
+          "file": "apps/web/postcss.config.mjs",
+          "hash": "2557392112968376575"
+        },
+        {
+          "file": "apps/web/public/next.svg",
+          "hash": "8300767200008744458"
+        },
+        {
+          "file": "apps/web/public/vercel.svg",
+          "hash": "2376673330454856631"
+        },
+        {
+          "file": "apps/web/src/app/favicon.ico",
+          "hash": "9157999678830540297"
+        },
+        {
+          "file": "apps/web/src/app/globals.css",
+          "hash": "10620967136394561243"
+        },
+        {
+          "file": "apps/web/src/app/layout.tsx",
+          "hash": "14869893044596788660"
+        },
+        {
+          "file": "apps/web/src/app/page.tsx",
+          "hash": "16908419593553433010"
+        },
+        {
+          "file": "apps/web/tailwind.config.ts",
+          "hash": "8266647255848899898"
+        },
+        {
+          "file": "apps/web/tsconfig.json",
+          "hash": "4320684160905164141"
+        }
+      ]
+    }
+  }
+}

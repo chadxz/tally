@@ -2,7 +2,6 @@
   "name": "tally",
   "version": "1.0.0",
   "description": "Keep a tally of whatever you want.",
-  "main": "index.ts",
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT"
 }
