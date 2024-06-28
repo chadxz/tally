@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "Keep a tally of whatever you want.",
   "author": "Chad McElligott <chad@chadxz.dev>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nx": "^19.3.2"
+  }
 }
