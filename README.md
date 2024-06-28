@@ -12,17 +12,16 @@ Raycast app frontend
 * show top-tally items
 * add item comment
 
-Hono Node.js backend API
-* search
-* add item
-* increment tally
-* fetch items, sorted by tally (asc, desc)
+Next.js Management Webapp
+* App Router Web App
+  * CRUD on tokens
+  * CRUD on items
+  * View item history
+  * View token history
+* API
+  * search
+  * add item
+  * increment tally
+  * fetch items, sorted by tally (asc, desc)
 
-Management Webapp - Next.js App Router
-* CRUD on tokens
-* CRUD on items
-* View item history
-* View token history
-
-Neon database
-Deployed serverless
+Neon database. Deployed serverless.
