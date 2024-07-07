@@ -1,0 +1,14 @@
+{
+  "name": "@tally/contract",
+  "version": "1.0.0",
+  "description": "ts-rest contract",
+  "main": "index.ts",
+  "author": "Chad McElligott <chad@chadxz.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "@anatine/zod-openapi": "^2.2.6",
+    "@ts-rest/core": "^3.45.2",
+    "http-status-codes": "^2.3.0",
+    "zod": "^3.23.8"
+  }
+}
