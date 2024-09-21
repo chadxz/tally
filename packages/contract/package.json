@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@anatine/zod-openapi": "^2.2.6",
-    "@ts-rest/core": "^3.45.2",
+    "@ts-rest/core": "^3.51.0",
     "http-status-codes": "^2.3.0",
     "zod": "^3.23.8"
   }
