@@ -8,6 +8,13 @@
       "when": 1720246484830,
       "tag": "0000_parallel_chamber",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1726886471372,
+      "tag": "0001_mixed_giant_man",
+      "breakpoints": true
     }
   ]
 }

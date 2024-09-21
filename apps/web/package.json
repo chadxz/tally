@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "migrations:generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
