@@ -43,10 +43,6 @@ export default c.router(
       path: "/items",
       responses: {
         [+StatusCodes.OK]: z.array(itemResponseSchema),
-        [+StatusCodes.BAD_REQUEST]: z.object({
-          error: z.literal("Bad Request"),
-          description: z.literal("The request was malformed."),
-        }),
       },
     },
     createItem: {
