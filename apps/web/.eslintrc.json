@@ -1,9 +1,3 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "no-restricted-imports": [
-      "error",
-      "config"
-    ]
-  }
+  "extends": "next/core-web-vitals"
 }

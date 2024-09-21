@@ -16,7 +16,6 @@
     "@neondatabase/serverless": "^0.9.5",
     "@tally/contract": "workspace:^",
     "@ts-rest/serverless": "^3.51.0",
-    "config": "^3.3.12",
     "drizzle-cuid2": "^1.0.5",
     "drizzle-orm": "^0.31.4",
     "http-status-codes": "^2.3.0",
