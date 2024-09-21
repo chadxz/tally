@@ -1,18 +1,19 @@
-import { createNextHandler } from '@ts-rest/serverless/next';
-import contract from '@tally/contract';
+import { createNextHandler } from "@ts-rest/serverless/next";
+import contract from "@tally/contract";
 import { StatusCodes } from "http-status-codes";
 
-const handler = createNextHandler(contract,
+const handler = createNextHandler(
+  contract,
   {
     listItems: async () => {
       return {
         status: StatusCodes.OK,
         body: [
           {
-            id: '',
-            description: '',
-            createdAt: '',
-            updatedAt: '',
+            id: "",
+            description: "",
+            createdAt: "",
+            updatedAt: "",
             tally: 1,
           },
         ],
@@ -22,23 +23,23 @@ const handler = createNextHandler(contract,
       return {
         status: StatusCodes.CREATED,
         body: {
-          id: '',
-          description: '',
-          createdAt: '',
-          updatedAt: '',
+          id: "",
+          description: "",
+          createdAt: "",
+          updatedAt: "",
           tally: 1,
         },
       };
     },
   },
   {
-    basePath: '/api',
+    basePath: "/api",
     cors: {
       origin: true,
     },
     jsonQuery: true,
     responseValidation: false,
-    handlerType: 'app-router',
+    handlerType: "app-router",
   },
 );
 

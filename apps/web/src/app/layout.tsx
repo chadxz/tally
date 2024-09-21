@@ -7,15 +7,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tally",
-  description: "Keep a tally of whatever you want."
+  description: "Keep a tally of whatever you want.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-    <body className={inter.className}>
-    {children}
-    </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

@@ -8,7 +8,7 @@ export const ConfigSchema = z.object({
   environment: z.enum(["development", "test", "production"]),
   db: z.object({
     url: z.string().url(),
-  })
+  }),
 });
 
 /**
@@ -53,18 +53,18 @@ export enum EnvConfigExtendedFormat {
 // Converts our schema to allow specifying only portions for override.
 type DeepPartial<T> = T extends object
   ? {
-    [P in keyof T]?: DeepPartial<T[P]>;
-  }
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
   : T;
 
 // Converts our schema to type `custom-environment-variables` config file.
 type DeepEnv<T> = T extends object
   ? {
-    [P in keyof T]: DeepEnv<T[P]>;
-  }
+      [P in keyof T]: DeepEnv<T[P]>;
+    }
   :
-  | string
-  | {
-  __name: string;
-  __format: EnvConfigExtendedFormat;
-};
+      | string
+      | {
+          __name: string;
+          __format: EnvConfigExtendedFormat;
+        };

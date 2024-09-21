@@ -10,7 +10,7 @@ const c = initContract();
 const itemResponseSchema = z.object({
   id: z.string().openapi({
     description: "The id of this item.",
-    example: 'cjld2cyuq0006s1rr4xp6j8r0',
+    example: "cjld2cyuq0006s1rr4xp6j8r0",
   }),
   description: z.string().openapi({
     description: "The description of the thing to be tallied.",
@@ -21,14 +21,15 @@ const itemResponseSchema = z.object({
     example: "2024-07-06T12:00:00.000Z",
   }),
   updatedAt: z.string().datetime().openapi({
-    description: "The date and time this item was last updated, in ISO 8601 format.",
+    description:
+      "The date and time this item was last updated, in ISO 8601 format.",
     example: "2024-07-06T12:30:00.000Z",
   }),
   tally: z.number().gt(0).openapi({
     description: "The number of times this item has been tallied.",
     example: 1,
   }),
-})
+});
 
 /**
  * To define response codes we're using the StatusCodes enum, but the values
@@ -46,7 +47,7 @@ export default c.router(
           error: z.literal("Bad Request"),
           description: z.literal("The request was malformed."),
         }),
-      }
+      },
     },
     createItem: {
       method: "POST",
@@ -55,7 +56,7 @@ export default c.router(
         description: z.string().openapi({
           description: "The thing you want to tally",
           example: `I can't test Polaris Tab components with testing-library`,
-        })
+        }),
       }),
       responses: {
         [+StatusCodes.CREATED]: itemResponseSchema,
@@ -63,8 +64,8 @@ export default c.router(
           error: z.literal("Bad Request"),
           description: z.literal("The request was malformed."),
         }),
-      }
-    }
+      },
+    },
   },
   {
     strictStatusCodes: true,
@@ -77,6 +78,6 @@ export default c.router(
         error: z.literal("Internal Server Error"),
         description: z.literal("An internal server error occurred."),
       }),
-    }
-  }
+    },
+  },
 );
