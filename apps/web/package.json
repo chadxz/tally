@@ -15,6 +15,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
     "@tally/contract": "workspace:^",
+    "@tally/typedconfig": "workspace:^",
     "@ts-rest/serverless": "^3.51.0",
     "drizzle-cuid2": "^1.0.5",
     "drizzle-orm": "^0.31.4",
@@ -36,7 +37,6 @@
     "eslint-config-next": "15.0.0-rc.0",
     "happy-dom": "^15.7.4",
     "postcss": "^8.4.47",
-    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.12",
     "typescript": "^5.6.2",
     "vitest": "^2.1.1"

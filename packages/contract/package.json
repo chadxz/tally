@@ -2,7 +2,7 @@
   "name": "@tally/contract",
   "version": "1.0.0",
   "description": "ts-rest contract",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "dependencies": {

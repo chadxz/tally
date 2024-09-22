@@ -28,14 +28,14 @@ Raycast app frontend
 Next.js Management Webapp
 
 * App Router Web App
-    * CRUD on tokens
-    * CRUD on items
-    * View item history
-    * View token history
+  * CRUD on tokens
+  * CRUD on items
+  * View item history
+  * View token history
 * API
-    * search
-    * add item
-    * increment tally
-    * fetch items, sorted by tally (asc, desc)
+  * search
+  * add item
+  * increment tally
+  * fetch items, sorted by tally (asc, desc)
 
 Neon database. Deployed serverless.
