@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "@tally/raycast",
   "title": "tally",
-  "description": "Keep a tally of whatever you want.",
+  "description": "Count all the things!",
   "icon": "command-icon.png",
   "author": "Chad McElligott <chad@chadxz.dev>",
   "categories": [

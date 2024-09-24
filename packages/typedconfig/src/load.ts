@@ -38,11 +38,11 @@ export function loadConfig<T extends z.ZodTypeAny>(
 function loadAllConfigFiles(path: string) {
   const env = process.env.NODE_ENV || "development";
   return {
-    ...loadConfigFromFile(join(path, "default")),
-    ...loadConfigFromFile(join(path, env)),
-    ...loadConfigFromFile(join(path, "local")),
-    ...loadConfigFromFile(join(path, `local-${env}`)),
-    ...loadEnvConfigFromFile(join(path, "custom-environment-variables")),
+    ...loadConfigFromFile(join(path, "default.js")),
+    ...loadConfigFromFile(join(path, `${env}.js`)),
+    ...loadConfigFromFile(join(path, "local.js")),
+    ...loadConfigFromFile(join(path, `local-${env}.js`)),
+    ...loadEnvConfigFromFile(join(path, "custom-environment-variables.js")),
   };
 }
 
