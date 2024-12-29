@@ -8,12 +8,10 @@
  * import { DeepPartial } from "@tally/typedconfig";
  * import { Config } from "./schema";
  *
- * const config: DeepPartial<Config> = {
+ * export default {
  *   applicationName: "my app",
  *   environment: "development",
- * };
- *
- * export default config;
+ * } satisfies DeepPartial<Config>;
  * ```
  */
 export type DeepPartial<T> = T extends object
@@ -34,11 +32,9 @@ export type DeepPartial<T> = T extends object
  * import { DeepPartialEnv } from "@tally/typedconfig";
  * import { Config } from "./schema";
  *
- * const config: DeepPartialEnv<Config> = {
+ * export default {
  *   environment: "NODE_ENV",
- * };
- *
- * export default config;
+ * } satisfies DeepPartialEnv<Config>;
  * ```
  */
 export type DeepPartialEnv<T> = T extends object

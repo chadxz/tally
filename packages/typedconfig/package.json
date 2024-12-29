@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Load type-safe application configuration",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "test": "vitest"
   },
