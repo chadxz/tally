@@ -1,6 +1,6 @@
-export { loadConfig } from "./load";
+export { loadConfig } from "./load.ts";
 export {
-  type EnvConfigExtendedFormats,
+  EnvConfigExtendedFormats,
   type DeepPartialEnv,
   type DeepPartial,
-} from "./helpers";
+} from "./helpers.ts";

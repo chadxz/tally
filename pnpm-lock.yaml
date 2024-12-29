@@ -154,9 +154,6 @@ importers:
 
   packages/typedconfig:
     dependencies:
-      import-sync:
-        specifier: ^2.2.2
-        version: 2.2.2
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -919,10 +916,6 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@httptoolkit/esm@3.3.0':
-    resolution: {integrity: sha512-gS+TH14750cveYP5p2q/oLyjVV5+qRFZMOpsPzK1KrgacqKc6RLDmt3ioGaMjsn1aianQbROkl4QXDJmO5swPA==}
-    engines: {node: '>=6'}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -2717,9 +2710,6 @@ packages:
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
-
-  import-sync@2.2.2:
-    resolution: {integrity: sha512-MQ+8aB1LZu0dHqTmpkOJ5DLCqQNVNqbMrH/S9nvHChUSMsAlX6R3ydQhX3R5/YfCU6+qU3cbASiX59hJisMKgg==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -5143,8 +5133,6 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@httptoolkit/esm@3.3.0': {}
-
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
@@ -7413,10 +7401,6 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
-
-  import-sync@2.2.2:
-    dependencies:
-      '@httptoolkit/esm': 3.3.0
 
   imurmurhash@0.1.4: {}
 

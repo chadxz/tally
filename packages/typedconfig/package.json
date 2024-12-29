@@ -4,7 +4,7 @@
   "description": "Load type-safe application configuration",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [
     "config",
@@ -17,7 +17,6 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "dependencies": {
-    "import-sync": "^2.2.2",
     "js-yaml": "^4.1.0",
     "zod": "^3.23.8"
   },

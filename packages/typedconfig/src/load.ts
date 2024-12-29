@@ -1,12 +1,14 @@
 import { z } from "zod";
-import importSync from "import-sync";
+import { createRequire } from "node:module";
 import { join } from "node:path";
 import * as yaml from "js-yaml";
 import {
   EnvConfigExtendedFormats,
-  EnvConfigExtendedFormat,
-  EnvExtendedConfig,
-} from "./helpers";
+  type EnvConfigExtendedFormat,
+  type EnvExtendedConfig,
+} from "./helpers.ts";
+
+const require = createRequire(import.meta.url);
 
 /**
  * Load the application configuration using the typescript configuration files
@@ -38,47 +40,42 @@ export function loadConfig<T extends z.ZodTypeAny>(
 function loadAllConfigFiles(path: string) {
   const env = process.env.NODE_ENV || "development";
   return {
-    ...loadConfigFromFile(join(path, "default.js")),
-    ...loadConfigFromFile(join(path, `${env}.js`)),
-    ...loadConfigFromFile(join(path, "local.js")),
-    ...loadConfigFromFile(join(path, `local-${env}.js`)),
-    ...loadEnvConfigFromFile(join(path, "custom-environment-variables.js")),
+    ...loadConfigFromFile(join(path, "default.ts")),
+    ...loadConfigFromFile(join(path, `${env}.ts`)),
+    ...loadConfigFromFile(join(path, "local.ts")),
+    ...loadConfigFromFile(join(path, `local-${env}.ts`)),
+    ...loadEnvConfigFromFile(join(path, "custom-environment-variables.ts")),
   };
 }
 
-function loadEnvConfigFromFile(path: string): NestedConfig {
+function loadEnvConfigFromFile(path: string): RawConfig {
   const envConfig = loadConfigFromFile(path);
   return parseEnvConfig(envConfig);
 }
 
-function parseEnvConfig(config: NestedConfig): NestedConfig {
+function parseEnvConfig(config: RawConfig): RawConfig {
+  const result: RawConfig = {};
   Object.entries(config).forEach(([key, value]) => {
-    if (
-      isString(value) &&
-      Object.prototype.hasOwnProperty.call(process.env, value)
-    ) {
-      config[key] = process.env[value];
+    if (isString(value) && process.env[value] !== undefined) {
+      result[key] = process.env[value];
       return;
     }
 
-    if (
-      isEnvExtendedConfig(value) &&
-      Object.prototype.hasOwnProperty.call(process.env, value.__name)
-    ) {
-      config[key] = parseEnvVarValue(
+    if (isEnvExtendedConfig(value) && process.env[value.__name] !== undefined) {
+      result[key] = parseEnvVarValue(
         process.env[value.__name]!,
         value.__format,
       );
       return;
     }
 
-    if (isNestedConfig(value)) {
-      config[key] = parseEnvConfig(value);
+    if (isRawEnvConfig(value)) {
+      result[key] = parseEnvConfig(value);
       return;
     }
   });
 
-  return config;
+  return result;
 }
 
 function parseEnvVarValue(value: string, format: EnvConfigExtendedFormat) {
@@ -96,9 +93,13 @@ function parseEnvVarValue(value: string, format: EnvConfigExtendedFormat) {
   }
 }
 
-function loadConfigFromFile(path: string): NestedConfig {
+function loadConfigFromFile(path: string): RawConfig {
   try {
-    return importSync(path);
+    const module = require(path);
+    if (module.__esModule && module.default) {
+      return module.default;
+    }
+    return module;
   } catch (e) {
     return {};
   }
@@ -106,6 +107,15 @@ function loadConfigFromFile(path: string): NestedConfig {
 
 function isString(value: unknown): value is string {
   return typeof value === "string";
+}
+
+function isRawEnvConfig(value: unknown): value is RawEnvConfig {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    !Array.isArray(value) &&
+    !isEnvExtendedConfig(value)
+  );
 }
 
 function isEnvExtendedConfig(value: unknown): value is EnvExtendedConfig {
@@ -117,14 +127,6 @@ function isEnvExtendedConfig(value: unknown): value is EnvExtendedConfig {
   );
 }
 
-function isNestedConfig(value: unknown): value is NestedConfig {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    !Array.isArray(value) &&
-    !isEnvExtendedConfig(value)
-  );
-}
-
-type ConfigValue = string | EnvExtendedConfig | NestedConfig;
-type NestedConfig = { [key: string]: ConfigValue };
+type EnvConfigValue = string | EnvExtendedConfig | RawEnvConfig;
+type RawEnvConfig = { [key: string]: EnvConfigValue };
+type RawConfig = Record<string, unknown>;

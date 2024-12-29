@@ -1,4 +1,4 @@
-import { DeepPartial, DeepPartialEnv } from "@tally/typedconfig";
+import type { DeepPartial, DeepPartialEnv } from "@tally/typedconfig";
 import { z } from "zod";
 
 /**

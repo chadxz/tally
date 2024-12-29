@@ -1,7 +1,5 @@
-import { PartialConfig } from "./schema";
+import type { PartialConfig } from "./schema";
 
-const config: PartialConfig = {
+export default {
   environment: "development",
-};
-
-export default config;
+} satisfies PartialConfig;

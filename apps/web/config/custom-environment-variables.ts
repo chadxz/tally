@@ -1,7 +1,5 @@
-import { PartialEnvConfig } from "./schema";
+import type { PartialEnvConfig } from "./schema";
 
-const config: PartialEnvConfig = {
+export default {
   environment: "NODE_ENV",
-};
-
-export default config;
+} satisfies PartialEnvConfig;
