@@ -18,12 +18,11 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "dependencies": {
-    "js-yaml": "^4.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.5.5",
-    "vitest": "^2.1.1"
+    "@vitest/coverage-v8": "^2.1.8",
+    "vitest": "^2.1.8"
   }
 }

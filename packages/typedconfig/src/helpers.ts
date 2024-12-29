@@ -37,7 +37,9 @@ export type DeepPartial<T> = T extends object
  * } satisfies DeepPartialEnv<Config>;
  * ```
  */
-export type DeepPartialEnv<T> = T extends object
+export type DeepPartialEnv<T> = T extends Array<unknown>
+  ? string | EnvExtendedConfig
+  : T extends object
   ? {
     [P in keyof T]?: DeepPartialEnv<T[P]>;
   }

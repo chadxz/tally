@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { createRequire } from "node:module";
 import { join } from "node:path";
-import * as yaml from "js-yaml";
 import {
   EnvConfigExtendedFormats,
   type EnvConfigExtendedFormat,
@@ -39,13 +38,42 @@ export function loadConfig<T extends z.ZodTypeAny>(
 
 function loadAllConfigFiles(path: string) {
   const env = process.env.NODE_ENV || "development";
-  return {
-    ...loadConfigFromFile(join(path, "default.ts")),
-    ...loadConfigFromFile(join(path, `${env}.ts`)),
-    ...loadConfigFromFile(join(path, "local.ts")),
-    ...loadConfigFromFile(join(path, `local-${env}.ts`)),
-    ...loadEnvConfigFromFile(join(path, "custom-environment-variables.ts")),
-  };
+  const configs = [
+    loadConfigFromFile(join(path, "default.ts")),
+    loadConfigFromFile(join(path, `${env}.ts`)),
+    loadConfigFromFile(join(path, "local.ts")),
+    loadConfigFromFile(join(path, `local-${env}.ts`)),
+    loadEnvConfigFromFile(join(path, "custom-environment-variables.ts")),
+  ];
+  
+  return deepMergeAll(configs);
+}
+
+function deepMergeAll(configs: RawConfig[]): RawConfig {
+  return configs.reduce((acc, config) => deepMerge(acc, config), {});
+}
+
+function deepMerge(target: RawConfig, source: RawConfig): RawConfig {
+  const result = { ...target };
+  
+  for (const key in source) {
+    if (source.hasOwnProperty(key)) {
+      if (isObject(target[key]) && isObject(source[key])) {
+        result[key] = deepMerge(
+          target[key] as RawConfig,
+          source[key] as RawConfig
+        );
+      } else {
+        result[key] = source[key];
+      }
+    }
+  }
+  
+  return result;
+}
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function loadEnvConfigFromFile(path: string): RawConfig {
@@ -82,8 +110,6 @@ function parseEnvVarValue(value: string, format: EnvConfigExtendedFormat) {
   switch (format) {
     case EnvConfigExtendedFormats.json:
       return JSON.parse(value);
-    case EnvConfigExtendedFormats.yaml:
-      return yaml.load(value);
     case EnvConfigExtendedFormats.boolean:
       return value.toLowerCase() === "true";
     case EnvConfigExtendedFormats.number:
