@@ -10,8 +10,6 @@ work:
 - `--experimental-strip-types` to allow loading directly from TypeScript files.
 - `--experimental-require-module` to allow performing a synchronous `require`
   on an ESM module.
-- `--experimental-specifier-resolution=node` to allow required() ESM modules to
-  properly resolve imports that point to a directory instead of a file.
 
 ## Configuration Files Load Order
 
@@ -39,48 +37,44 @@ export default typedConfig;
 
 ```ts
 // config/custom-environment-variables.ts
-import { PartialEnvConfig } from "./schema";
+import type { PartialEnvConfig } from "./schema";
 
-const config: PartialEnvConfig = {
+export default {
   environment: "NODE_ENV",
-};
-export default config;
+} satisfies PartialEnvConfig;
 ```
 
 ```ts
 // config/default.ts
-import { PartialConfig } from "./schema";
+import type { PartialConfig } from "./schema";
 
-const config: PartialConfig = {
+export default {
   applicationName: "my app",
   environment: "development",
-};
-export default config;
+} satisfies PartialConfig;
 ```
 
 ```ts
 // config/test.ts
-import { PartialConfig } from "./schema";
+import type { PartialConfig } from "./schema";
 
-const config: PartialConfig = {
+export default {
   environment: "test",
-};
-export default config;
+} satisfies PartialConfig;
 ```
 
 ```ts
 // config/production.ts
-import { PartialConfig } from "./schema";
+import type { PartialConfig } from "./schema";
 
-const config: PartialConfig = {
+export default {
   environment: "production",
-};
-export default config;
+} satisfies PartialConfig;
 ```
 
 ```ts
 // config/schema/index.ts
-import { DeepPartial, DeepPartialEnv } from "@tally/typedconfig";
+import type { DeepPartial, DeepPartialEnv } from "@tally/typedconfig";
 import { z } from "zod";
 
 export const configSchema = z.object({
