@@ -18,6 +18,7 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "dependencies": {
+    "deepmerge": "^4.3.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {

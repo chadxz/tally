@@ -16,8 +16,8 @@
  */
 export type DeepPartial<T> = T extends object
   ? {
-    [P in keyof T]?: DeepPartial<T[P]>;
-  }
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
   : T;
 
 /**
@@ -34,38 +34,43 @@ export type DeepPartial<T> = T extends object
  *
  * export default {
  *   environment: "NODE_ENV",
+ *   emailEnabled: {
+ *     __name: "EMAIL_ENABLED",
+ *     __format: EnvConfigExtendedFormats.boolean,
+ *   },
  * } satisfies DeepPartialEnv<Config>;
  * ```
  */
-export type DeepPartialEnv<T> = T extends Array<unknown>
-  ? string | EnvExtendedConfig
-  : T extends object
-  ? {
-    [P in keyof T]?: DeepPartialEnv<T[P]>;
-  }
-  : string | EnvExtendedConfig;
+export type DeepPartialEnv<T> =
+  T extends Array<unknown>
+    ? string | EnvExtendedConfig
+    : T extends object
+      ? {
+          [P in keyof T]?: DeepPartialEnv<T[P]>;
+        }
+      : string | EnvExtendedConfig;
 
 /**
- * Formats that can be used when parsing an environment variable.
+ * Formats that can be used when parsing an environment variable. `json` is
+ * primarily useful when specifying an array as an environment variable. `boolean`
+ * directly maps an environment variable to a boolean, and `number` converts a
+ * string environment variable to a number. This allows a more strict Zod schema.
  *
  * @example
  * ```ts
  * import { DeepPartialEnv, EnvConfigExtendedFormat } from "@tally/typedconfig";
  * import { Config } from "./schema";
  *
- * const config: DeepPartialEnv<Config> = {
+ * export default {
  *   port: {
  *     __name: "PORT",
  *     __format: EnvConfigExtendedFormats.number,
  *   },
- * };
- *
- * export default config;
+ * } satisfies DeepPartialEnv<Config>;
  * ```
  */
 export const EnvConfigExtendedFormats = {
   json: "json",
-  yaml: "yaml",
   boolean: "boolean",
   number: "number",
 } as const;

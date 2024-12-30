@@ -1,0 +1,10 @@
+# Aider configuration file
+# See https://aider.chat/docs/config/options.html
+dark-mode: true
+cache-prompts: true
+subtree-only: true
+auto-commits: false
+test-cmd: vitest run
+auto-test: true
+deepseek: true
+architect: true

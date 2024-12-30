@@ -6,6 +6,7 @@ import {
   type EnvConfigExtendedFormat,
   type EnvExtendedConfig,
 } from "./helpers.ts";
+import deepmerge from "deepmerge";
 
 const require = createRequire(import.meta.url);
 
@@ -22,8 +23,12 @@ const require = createRequire(import.meta.url);
  * custom-environment-variables.ts
  * ```
  *
- * The `custom-environment-variables.ts` file is optional and can be used to
- * specify environment variables that map to configuration options.
+ * All the above files are optional.
+ *
+ * The `custom-environment-variables.ts` file is used to specify environment
+ * variables that map to configuration options, and whether any additional
+ * processing is performed on the value prior to assigning to the resulting
+ * configuration object. See {@link DeepPartialEnv} for more information.
  *
  * Once the configuration is loaded, it is parsed using the provided
  * {@link schema} to return a fully-typed configuration object.
@@ -45,35 +50,12 @@ function loadAllConfigFiles(path: string) {
     loadConfigFromFile(join(path, `local-${env}.ts`)),
     loadEnvConfigFromFile(join(path, "custom-environment-variables.ts")),
   ];
-  
+
   return deepMergeAll(configs);
 }
 
 function deepMergeAll(configs: RawConfig[]): RawConfig {
-  return configs.reduce((acc, config) => deepMerge(acc, config), {});
-}
-
-function deepMerge(target: RawConfig, source: RawConfig): RawConfig {
-  const result = { ...target };
-  
-  for (const key in source) {
-    if (source.hasOwnProperty(key)) {
-      if (isObject(target[key]) && isObject(source[key])) {
-        result[key] = deepMerge(
-          target[key] as RawConfig,
-          source[key] as RawConfig
-        );
-      } else {
-        result[key] = source[key];
-      }
-    }
-  }
-  
-  return result;
-}
-
-function isObject(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
+  return configs.reduce((acc, config) => deepmerge(acc, config), {});
 }
 
 function loadEnvConfigFromFile(path: string): RawConfig {
@@ -127,7 +109,11 @@ function loadConfigFromFile(path: string): RawConfig {
     }
     return module;
   } catch (e) {
-    return {};
+    if (isModuleNotFoundError(e)) {
+      // Missing configuration files are OK
+      return {};
+    }
+    throw e;
   }
 }
 
@@ -151,6 +137,14 @@ function isEnvExtendedConfig(value: unknown): value is EnvExtendedConfig {
     "__name" in value &&
     "__format" in value
   );
+}
+
+function isModuleNotFoundError(e: unknown): e is ModuleNotFoundError {
+  return e instanceof Error && "code" in e && e.code === "MODULE_NOT_FOUND";
+}
+
+interface ModuleNotFoundError extends Error {
+  code: "MODULE_NOT_FOUND";
 }
 
 type EnvConfigValue = string | EnvExtendedConfig | RawEnvConfig;
