@@ -8,7 +8,7 @@
     "update-deps": "NPM_CHECK_INSTALLER=pnpm pnpx npm-check -u"
   },
   "devDependencies": {
-    "nx": "^19.8.0",
-    "prettier": "^3.3.3"
+    "nx": "^20.3.0",
+    "prettier": "^3.4.2"
   }
 }

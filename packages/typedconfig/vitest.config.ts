@@ -9,6 +9,7 @@ export default defineConfig({
       forks: {
         execArgv: [
           // Allows loading ESM TypeScript modules with `require()`.
+          "--disable-warning=ExperimentalWarning",
           "--experimental-strip-types",
           "--experimental-require-module",
         ],
