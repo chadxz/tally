@@ -1,9 +1,9 @@
-import { json, type MetaFunction } from "@remix-run/node";
+import { type MetaFunction } from "@remix-run/node";
 import db from "~/db";
 import { items } from "~/db/schema/items";
 import { count, desc, eq } from "drizzle-orm";
 import { tallies } from "~/db/schema/tallies";
-import {useLoaderData} from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 // noinspection JSUnusedGlobalSymbols
 export const meta: MetaFunction = () => {
@@ -24,15 +24,13 @@ export async function loader() {
     .groupBy(items.id)
     .orderBy(desc(items.createdAt));
 
-  return json(
-    allItems.map((i) => ({
-      id: i.id,
-      description: i.description,
-      createdAt: i.createdAt.toISOString(),
-      updatedAt: i.updatedAt.toISOString(),
-      tally: i.tally,
-    })),
-  );
+  return allItems.map((i) => ({
+    id: i.id,
+    description: i.description,
+    createdAt: i.createdAt.toISOString(),
+    updatedAt: i.updatedAt.toISOString(),
+    tally: i.tally,
+  }));
 }
 
 export default function Index() {
