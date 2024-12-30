@@ -85,6 +85,9 @@ importers:
       '@react-router/fs-routes':
         specifier: ^7.0.0
         version: 7.1.1(@react-router/dev@7.1.1(@react-router/serve@7.1.1(react-router@7.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.6.2))(@types/node@22.5.5)(react-router@7.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.6.2)(vite@5.4.7(@types/node@22.5.5)))(typescript@5.6.2)
+      '@tally/node-experimental-wrapper':
+        specifier: workspace:*
+        version: link:../../packages/node-experimental-wrapper
       '@types/react':
         specifier: ^19.0.2
         version: 19.0.2
@@ -154,6 +157,8 @@ importers:
       zod:
         specifier: ^3.23.8
         version: 3.23.8
+
+  packages/node-experimental-wrapper: {}
 
   packages/typedconfig:
     dependencies:

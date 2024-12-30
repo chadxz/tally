@@ -5,15 +5,14 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "remix": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module' remix",
-    "build": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module' remix vite:build",
-    "dev": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module' remix vite:dev",
+    "build": "react-router build",
+    "dev": "react-router dev",
     "test": "vitest",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module' remix-serve ./build/server/index.js",
-    "migrations:generate": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module'drizzle-kit generate",
-    "migrate": "NODE_OPTIONS='--experimental-strip-types --experimental-require-module'drizzle-kit migrate",
-    "typecheck": "tsc"
+    "start": "react-router-serve build/server/index.js",
+    "migrations:generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
@@ -30,6 +29,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@tally/node-experimental-wrapper": "workspace:*",
     "@react-router/dev": "^7.0.0",
     "@react-router/fs-routes": "^7.0.0",
     "@types/react": "^19.0.2",

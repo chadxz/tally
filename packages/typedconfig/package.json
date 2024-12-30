@@ -4,6 +4,7 @@
   "description": "Load type-safe application configuration",
   "main": "src/index.ts",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "vitest"
   },

@@ -15,6 +15,12 @@ pnpm install
 pnpx nx dev @tally/web
 ```
 
+### Add a new app / package
+
+```sh
+nx
+```
+
 ## Architecture
 
 Raycast app frontend
