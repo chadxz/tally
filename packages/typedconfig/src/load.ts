@@ -41,7 +41,7 @@ export function loadConfig<T extends z.ZodTypeAny>(
   return schema.parse(data);
 }
 
-function loadAllConfigFiles(path: string) {
+function loadAllConfigFiles(path: string): RawConfig {
   const env = process.env.NODE_ENV || "development";
   const configs = [
     loadConfigFromFile(join(path, "default.ts")),
