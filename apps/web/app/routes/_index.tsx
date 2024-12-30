@@ -1,9 +1,9 @@
-import { type MetaFunction } from "@remix-run/node";
+import { type MetaFunction } from "react-router";
 import db from "~/db";
 import { items } from "~/db/schema/items";
 import { count, desc, eq } from "drizzle-orm";
 import { tallies } from "~/db/schema/tallies";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 // noinspection JSUnusedGlobalSymbols
 export const meta: MetaFunction = () => {

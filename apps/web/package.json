@@ -17,9 +17,8 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
-    "@remix-run/node": "^2.15.2",
-    "@remix-run/react": "^2.15.2",
-    "@remix-run/serve": "^2.15.2",
+    "@react-router/node": "^7.0.0",
+    "@react-router/serve": "^7.0.0",
     "@tally/contract": "workspace:*",
     "@tally/typedconfig": "workspace:*",
     "drizzle-cuid2": "^1.0.5",
@@ -27,12 +26,12 @@
     "isbot": "^4.1.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-router": "^7.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.15.2",
-    "@remix-run/fs-routes": "^2.15.2",
-    "@remix-run/route-config": "^2.15.2",
+    "@react-router/dev": "^7.0.0",
+    "@react-router/fs-routes": "^7.0.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
