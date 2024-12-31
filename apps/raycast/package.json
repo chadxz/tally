@@ -1,10 +1,10 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "@tally/raycast",
-  "title": "tally",
+  "name": "tally",
+  "title": "Tally",
   "description": "Count all the things!",
   "icon": "command-icon.png",
-  "author": "Chad McElligott <chad@chadxz.dev>",
+  "author": "chadxz",
   "categories": [
     "Productivity"
   ],
@@ -18,15 +18,23 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.77.3"
+    "@raycast/api": "^1.88.4"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "^1.0.8",
+    "@eslint/js": "^9.17.0",
     "@types/node": "20.8.10",
     "@types/react": "18.3.3",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
-    "typescript": "^5.4.5"
+    "@vitest/eslint-plugin": "^1.1.21",
+    "eslint": "^9.17.0",
+    "eslint-plugin-import-x": "^4.6.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "npm-check": "^6.0.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
   },
   "scripts": {
     "build": "ray build -e dist",
@@ -34,6 +42,7 @@
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
     "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
-    "publish": "pnpx @raycast/api@latest publish"
+    "publish": "ray publish",
+    "update-deps": "npm-check -u"
   }
 }

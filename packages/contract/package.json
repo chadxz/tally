@@ -5,10 +5,16 @@
   "main": "src/index.ts",
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
+  "scripts": {
+    "update-deps": "npm-check -u"
+  },
   "dependencies": {
     "@anatine/zod-openapi": "^2.2.6",
     "@ts-rest/core": "^3.51.0",
     "http-status-codes": "^2.3.0",
     "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "npm-check": "^6.0.1"
   }
 }

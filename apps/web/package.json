@@ -7,11 +7,12 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "lint": "eslint .",
     "start": "react-router-serve build/server/index.js",
     "migrations:generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "update-deps": "npm-check -u"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
@@ -28,24 +29,27 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@react-router/dev": "^7.0.0",
     "@react-router/fs-routes": "^7.0.0",
     "@tally/node-experimental-wrapper": "workspace:*",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
+    "@vitest/eslint-plugin": "^1.1.21",
     "autoprefixer": "^10.4.19",
     "drizzle-kit": "^0.30.1",
     "eslint": "^9.17.0",
     "eslint-import-resolver-typescript": "^3.7.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import-x": "^4.6.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "npm-check": "^6.0.1",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0",
     "vite": "^6.0.6",
     "vite-tsconfig-paths": "^5.1.4"
   },
