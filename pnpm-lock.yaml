@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      npm-check:
+        specifier: ^6.0.1
+        version: 6.0.1
       nx:
         specifier: ^20.3.0
         version: 20.3.0

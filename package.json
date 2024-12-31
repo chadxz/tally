@@ -5,9 +5,10 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "scripts": {
-    "update-deps": "NPM_CHECK_INSTALLER=pnpm pnpx npm-check -u"
+    "update-deps": "npm-check -u"
   },
   "devDependencies": {
+    "npm-check": "^6.0.1",
     "nx": "^20.3.0",
     "prettier": "^3.4.2"
   }
