@@ -1,7 +1,7 @@
 import { type MetaFunction } from "react-router";
 import db from "~/db";
 import { items } from "~/db/schema/items";
-import { count, desc, eq } from "drizzle-orm";
+import { count, desc, eq, max } from "drizzle-orm";
 import { tallies } from "~/db/schema/tallies";
 import { useLoaderData } from "react-router";
 
@@ -15,9 +15,8 @@ export async function loader() {
     .select({
       id: items.id,
       description: items.description,
-      createdAt: items.createdAt,
-      updatedAt: items.updatedAt,
       tally: count(tallies.id),
+      lastTalliedAt: max(tallies.createdAt)
     })
     .from(items)
     .innerJoin(tallies, eq(items.id, tallies.itemId))
@@ -27,9 +26,8 @@ export async function loader() {
   return allItems.map((i) => ({
     id: i.id,
     description: i.description,
-    createdAt: i.createdAt.toISOString(),
-    updatedAt: i.updatedAt.toISOString(),
     tally: i.tally,
+    lastTalliedAt: i.lastTalliedAt
   }));
 }
 
@@ -43,7 +41,7 @@ export default function Index() {
       <ul>
         {data.map((item) => (
           <li key={item.id}>
-            {item.description} - {item.tally} - {item.createdAt}
+            {item.description} - {item.tally} - {item.lastTalliedAt?.toISOString()}
           </li>
         ))}
       </ul>
