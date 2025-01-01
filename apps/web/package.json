@@ -33,6 +33,7 @@
     "@react-router/dev": "^7.0.0",
     "@react-router/fs-routes": "^7.0.0",
     "@tally/node-experimental-wrapper": "workspace:*",
+    "@types/node": "^22.10.3",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@vitest/eslint-plugin": "^1.1.21",
