@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@netlify/vite-plugin-react-router": "^1.0.0",
     "@react-router/dev": "^7.0.0",
     "@react-router/fs-routes": "^7.0.0",
     "@tally/node-experimental-wrapper": "workspace:*",
@@ -55,6 +56,6 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22"
   }
 }

@@ -5,9 +5,11 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "scripts": {
+    "deploy": "netlify deploy --build",
     "update-deps": "npm-check -u"
   },
   "devDependencies": {
+    "netlify-cli": "^17.38.1",
     "npm-check": "^6.0.1",
     "nx": "^20.3.0",
     "prettier": "^3.4.2"

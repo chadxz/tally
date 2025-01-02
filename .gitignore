@@ -3,3 +3,6 @@ node_modules
 .aider*
 !.aider.conf.yml
 coverage
+
+# Local Netlify folder
+.netlify
