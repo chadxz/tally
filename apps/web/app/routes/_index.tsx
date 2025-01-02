@@ -31,6 +31,7 @@ export async function loader() {
   }));
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   return (
