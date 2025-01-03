@@ -6,7 +6,8 @@
   "author": "Chad McElligott <chad@chadxz.dev>",
   "license": "MIT",
   "scripts": {
-    "update-deps": "npm-check -u"
+    "update-deps": "npm-check -u",
+    "clean": "rm -rf node_modules"
   },
   "dependencies": {
     "@anatine/zod-openapi": "^2.2.6",

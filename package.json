@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "deploy": "netlify deploy --build",
-    "update-deps": "npm-check -u"
+    "update-deps": "npm-check -u",
+    "clean": "nx run-many --target=clean --all"
   },
   "devDependencies": {
     "netlify-cli": "^17.38.1",
