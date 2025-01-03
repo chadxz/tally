@@ -3,6 +3,8 @@
   command = "nx run @tally/web:build"
   functions = "apps/web/.netlify/v1/functions"
   publish = "apps/web/build/client"
+[build.environment]
+  NODE_ENV = "development"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
