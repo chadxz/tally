@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4762edf6-7be1-4185-942f-cdfc33b74fda/deploy-status)](https://app.netlify.com/sites/tally-web/deploys)
+
 # Tally
 
 Collect ideas, keep a tally of how many times they come up, then use them to
