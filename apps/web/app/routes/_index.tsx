@@ -4,6 +4,7 @@ import { items } from "~/db/schema/items";
 import { count, desc, eq, max } from "drizzle-orm";
 import { tallies } from "~/db/schema/tallies";
 import { useLoaderData } from "react-router";
+import { Card, Table } from "react-daisyui";
 
 // noinspection JSUnusedGlobalSymbols
 export const meta: MetaFunction = () => {
@@ -16,7 +17,7 @@ export async function loader() {
       id: items.id,
       description: items.description,
       tally: count(tallies.id),
-      lastTalliedAt: max(tallies.createdAt)
+      lastTalliedAt: max(tallies.createdAt),
     })
     .from(items)
     .innerJoin(tallies, eq(items.id, tallies.itemId))
@@ -27,7 +28,7 @@ export async function loader() {
     id: i.id,
     description: i.description,
     tally: i.tally,
-    lastTalliedAt: i.lastTalliedAt
+    lastTalliedAt: i.lastTalliedAt,
   }));
 }
 
@@ -35,17 +36,24 @@ export async function loader() {
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   return (
-    <main>
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
-        Hello World
-      </h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>
-            {item.description} - {item.tally} - {item.lastTalliedAt?.toISOString()}
-          </li>
-        ))}
-      </ul>
-    </main>
+    <div className={"container mx-auto py-4"}>
+      <h1 className={"text-4xl font-extrabold"}>Hello World</h1>
+      <Table>
+        <Table.Head>
+          <span>Description</span>
+          <span>Tally</span>
+          <span>Last Updated</span>
+        </Table.Head>
+        <Table.Body>
+          {data.map((item) => (
+            <Table.Row key={item.id}>
+              <span>{item.description}</span>
+              <span>{item.tally}</span>
+              <span>{item.lastTalliedAt?.toISOString()}</span>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </div>
   );
 }
