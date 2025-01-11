@@ -7,6 +7,7 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
+    "deploy": "netlify deploy --build",
     "lint": "eslint .",
     "start": "react-router-serve build/server/index.js",
     "migrations:generate": "drizzle-kit generate",
@@ -31,6 +32,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "netlify-cli": "^17.38.1",
     "@eslint/js": "^9.17.0",
     "@netlify/vite-plugin-react-router": "^1.0.0",
     "@react-router/dev": "^7.0.0",

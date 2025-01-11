@@ -1,7 +1,0 @@
-# See full configuration @ https://ntl.fyi/file-based-build-config
-[build]
-  command = "nx run @tally/web:build"
-  functions = "apps/web/.netlify/v1/functions"
-  publish = "apps/web/build/client"
-[build.environment]
-  NODE_ENV = "development"

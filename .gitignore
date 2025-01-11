@@ -1,8 +1,2 @@
 node_modules
 .nx
-.aider*
-!.aider.conf.yml
-coverage
-
-# Local Netlify folder
-.netlify
