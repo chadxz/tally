@@ -8,7 +8,7 @@
     "dev": "nitro dev",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs",
-    "clean": "rm -rf node_modules dist .nitro .output"
+    "clean": "rm -rf node_modules dist .nitro .output .netlify"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
