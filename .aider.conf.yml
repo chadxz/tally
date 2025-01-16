@@ -5,6 +5,7 @@ cache-prompts: true
 subtree-only: true
 auto-commits: false
 test-cmd: vitest run
-auto-test: true
+auto-test: false
 deepseek: true
-architect: true
+watch-files: true
+gitignore: false
