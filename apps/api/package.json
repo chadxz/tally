@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "clean": "rm -rf dist node_modules"
+    "clean": "rm -rf dist node_modules",
+    "update-deps": "npm-check -u"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
@@ -14,8 +15,8 @@
     "@hono/vite-build": "https://gitpkg.vercel.app/chadxz/vite-plugins/packages/build?build-netlify-built",
     "@hono/vite-dev-server": "^0.18.1",
     "@netlify/functions": "^3.0.0",
-    "@types/node": "^20.11.17",
+    "@types/node": "^22.10.8",
     "tsx": "^4.7.1",
-    "vite": "^6.0.6"
+    "vite": "^6.0.11"
   }
 }
