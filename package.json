@@ -12,5 +12,6 @@
     "npm-check": "^6.0.1",
     "nx": "^20.3.0",
     "prettier": "^3.4.2"
-  }
+  },
+  "packageManager": "pnpm@9.15.4"
 }

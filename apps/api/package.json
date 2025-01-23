@@ -2,8 +2,9 @@
   "name": "@tally/api",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "vite build"
+    "dev": "vite",
+    "build": "vite build",
+    "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",

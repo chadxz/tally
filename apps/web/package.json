@@ -15,7 +15,7 @@
     "prepare": "react-router typegen",
     "typecheck": "react-router typegen && tsc",
     "update-deps": "npm-check -u",
-    "clean": "rm -rf node_modules build .netlify .react-router "
+    "clean": "rm -rf node_modules build .netlify .react-router"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
