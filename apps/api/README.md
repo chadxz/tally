@@ -1,3 +1,3 @@
-# Nitro starter
+# Tally API
 
-Look at the [nitro quick start](https://nitro.unjs.io/guide#quick-start) to learn more how to get started.
+The public API for the Tally web service.

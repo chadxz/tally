@@ -1,5 +1,5 @@
 # https://ntl.fyi/file-based-build-config
 [build]
 command = "nx run @tally/api:build"
-functions = "apps/api/.netlify/functions-internal"
-publish = "apps/api/dist"
+functions = "apps/api/dist/functions"
+publish = "apps/api/dist/publish"
