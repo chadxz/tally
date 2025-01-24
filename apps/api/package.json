@@ -9,14 +9,18 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
-    "hono": "^4.6.17"
+    "@hono/zod-openapi": "^0.18.3",
+    "@scalar/hono-api-reference": "^0.5.168",
+    "common-tags": "^1.8.2",
+    "hono": "^4.6.17",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@hono/vite-build": "https://gitpkg.vercel.app/chadxz/vite-plugins/packages/build?build-netlify-built",
     "@hono/vite-dev-server": "^0.18.1",
     "@netlify/functions": "^3.0.0",
+    "@types/common-tags": "^1.8.4",
     "@types/node": "^22.10.8",
-    "tsx": "^4.7.1",
     "vite": "^6.0.11"
   }
 }
