@@ -4,21 +4,18 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
+    "moduleResolution": "bundler",
     "isolatedModules": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noEmit": true,
-    "lib": [
-      "es2022"
-    ],
+    "lib": ["es2022"],
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "preserve",
     "strict": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "types": [
-      "node"
-    ],
+    "types": ["vitest/globals", "vite/client", "node"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   }

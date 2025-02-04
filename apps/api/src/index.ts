@@ -1,6 +1,10 @@
+import { highlightMiddleware } from "@highlight-run/hono";
 import { z, createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { apiReference } from "@scalar/hono-api-reference";
 import { oneLine, stripIndent } from "common-tags";
+import logger from "./logger";
+import config from "./config";
+import packageJson from "../package.json";
 
 const querySchema = z.object({
   cursor: z
@@ -87,6 +91,14 @@ const route = createRoute({
 });
 
 const app = new OpenAPIHono();
+app.use(
+  highlightMiddleware({
+    projectID: "lgx7vr4d",
+    serviceName: packageJson.name,
+    environment: config.nodeEnv,
+    serviceVersion: config.vcsRef,
+  }),
+);
 
 app.openAPIRegistry.register("Item", itemSchema);
 
@@ -97,6 +109,20 @@ app.openapi(route, async (c) => {
 
 app.get("/foo", (c) => {
   return c.json({ foo: "bar" });
+});
+
+app.get("/error", () => {
+  throw new Error("This is a test error. Nothing to see here.");
+});
+
+app.notFound((c) => {
+  return c.json({ message: "Not found" }, { status: 404 });
+});
+
+app.onError((error, c) => {
+  logger.error("Unhandled error", { error });
+  const message = "Internal server error";
+  return c.json({ message }, { status: 500 });
 });
 
 app.openAPIRegistry.registerComponent("securitySchemes", "Bearer", {
