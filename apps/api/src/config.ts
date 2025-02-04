@@ -16,6 +16,10 @@ const configSchema = z
      * currently running code.
      */
     COMMIT_REF: z.string().optional().default("unknown"),
+    /**
+     * Highlight.io project ID, for telemetry.
+     */
+    HIGHLIGHT_PROJECT_ID: z.string().optional(),
   })
   .transform((config) => camelcaseKeys(config));
 

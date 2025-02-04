@@ -91,14 +91,18 @@ const route = createRoute({
 });
 
 const app = new OpenAPIHono();
-app.use(
-  highlightMiddleware({
-    projectID: "lgx7vr4d",
-    serviceName: packageJson.name,
-    environment: config.nodeEnv,
-    serviceVersion: config.commitRef,
-  }),
-);
+
+if (config.highlightProjectId) {
+  logger.info("Enabling Highlight.io telemetry");
+  app.use(
+    highlightMiddleware({
+      projectID: config.highlightProjectId,
+      serviceName: packageJson.name,
+      environment: config.nodeEnv,
+      serviceVersion: config.commitRef,
+    }),
+  );
+}
 
 app.openAPIRegistry.register("Item", itemSchema);
 
