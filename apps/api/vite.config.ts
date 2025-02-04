@@ -12,7 +12,7 @@ export default defineConfig({
     }),
     build({
       entry: "./src/index.ts",
-      output: "functions/server/index.js"
+      output: "functions/server/index.js",
     })
   ],
   test: {

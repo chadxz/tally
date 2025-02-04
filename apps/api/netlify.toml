@@ -1,5 +1,9 @@
 # https://ntl.fyi/file-based-build-config
 [build]
-command = "nx run @tally/api:build"
+command = "APP_COMMIT_REF=${COMMIT_REF} nx run @tally/api:build"
 functions = "apps/api/dist/functions"
 publish = "apps/api/dist/publish"
+[environment]
+NODE_ENV = "production"
+[context.dev.environment]
+NODE_ENV = "development"

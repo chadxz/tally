@@ -15,7 +15,7 @@ const configSchema = z
      * The Version Control System (VCS) reference that corresponds to the
      * currently running code.
      */
-    VCS_REF: z.string().optional().default("unknown"),
+    COMMIT_REF: z.string().optional().default("unknown"),
   })
   .transform((config) => camelcaseKeys(config));
 

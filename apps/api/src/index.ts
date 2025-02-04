@@ -96,7 +96,7 @@ app.use(
     projectID: "lgx7vr4d",
     serviceName: packageJson.name,
     environment: config.nodeEnv,
-    serviceVersion: config.vcsRef,
+    serviceVersion: config.commitRef,
   }),
 );
 
