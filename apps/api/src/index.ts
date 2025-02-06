@@ -6,6 +6,8 @@ import logger from "./logger";
 import config from "./config";
 import packageJson from "../package.json";
 
+logger.info("Starting Tally API", { config });
+
 const querySchema = z.object({
   cursor: z
     .string()
