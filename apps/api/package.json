@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "env && vite build",
     "test": "vitest run",
     "clean": "rm -rf dist node_modules",
     "update-deps": "npm-check -u"
