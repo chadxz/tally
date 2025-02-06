@@ -21,7 +21,7 @@ const querySchema = z.object({
       `,
     }),
   limit: z
-    .number()
+    .number({ coerce: true })
     .gt(0)
     .optional()
     .default(100)
@@ -108,6 +108,7 @@ app.openAPIRegistry.register("Item", itemSchema);
 
 app.openapi(route, async (c) => {
   const { limit, cursor } = c.req.query();
+  logger.info("Listing items", { limit, cursor });
   return c.json([], 200);
 });
 
