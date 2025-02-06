@@ -6,8 +6,6 @@ import logger from "./logger";
 import config from "./config";
 import packageJson from "../package.json";
 
-logger.info("Starting Tally API", { config });
-logger.info("Environment for the app", { env: process.env, importMetaEnv: import.meta.env });
 const querySchema = z.object({
   cursor: z
     .string()
@@ -110,6 +108,8 @@ app.openAPIRegistry.register("Item", itemSchema);
 
 app.openapi(route, async (c) => {
   const { limit, cursor } = c.req.query();
+  logger.info("Tally API config", { config });
+  logger.info("Environment for the app", { env: process.env, importMetaEnv: import.meta.env });
   logger.info("Listing items", { limit, cursor });
   return c.json([], 200);
 });
