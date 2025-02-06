@@ -4,8 +4,12 @@ import { nodeAdapter as adapter } from "@hono/vite-dev-server/node";
 import build from "@hono/vite-build/netlify-functions";
 
 export default defineConfig({
-  keepProcessEnv: true,
   envPrefix: "APP_", // stripped off in config.ts
+  environments: {
+    ssr: {
+      keepProcessEnv: true,
+    }
+  },
   plugins: [
     devServer({
       entry: "./src/index.ts",
@@ -14,6 +18,7 @@ export default defineConfig({
     build({
       entry: "./src/index.ts",
       output: "functions/server/index.js",
+      emptyOutDir: true,
     })
   ],
   test: {
