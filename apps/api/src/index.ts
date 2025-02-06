@@ -108,6 +108,7 @@ app.openAPIRegistry.register("Item", itemSchema);
 
 app.openapi(route, async (c) => {
   const { limit, cursor } = c.req.query();
+  console.log(process.env);
   logger.info("Tally API config", { config });
   logger.info("Environment for the app", { env: { ...process.env }, importMetaEnv: import.meta.env });
   logger.info("Listing items", { limit, cursor });
