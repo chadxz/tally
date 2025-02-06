@@ -108,7 +108,7 @@ app.openAPIRegistry.register("Item", itemSchema);
 
 app.openapi(route, async (c) => {
   const { limit, cursor } = c.req.query();
-  logger.info("HIGHLIGHT", { value: process.env.HIGHLIGHT_PROJECT_ID });
+  logger.info("Environment", { environment: process.env })
   return c.json([], 200);
 });
 
