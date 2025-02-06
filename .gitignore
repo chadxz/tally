@@ -1,2 +1,5 @@
 node_modules
 .nx
+
+# Local Netlify folder
+.netlify

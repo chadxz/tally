@@ -7,7 +7,7 @@ import config from "./config";
 import packageJson from "../package.json";
 
 logger.info("Starting Tally API", { config });
-
+logger.info("Environment for the app", { env: process.env, importMetaEnv: import.meta.env });
 const querySchema = z.object({
   cursor: z
     .string()
