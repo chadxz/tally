@@ -108,7 +108,7 @@ app.openAPIRegistry.register("Item", itemSchema);
 
 app.openapi(route, async (c) => {
   const { limit, cursor } = c.req.query();
-  logger.info("Environment", { config, environment: process.env })
+  logger.info("Listing items", { limit, cursor });
   return c.json([], 200);
 });
 
