@@ -19,6 +19,7 @@ export default defineConfig({
       entry: "./src/index.ts",
       output: "functions/server/index.js",
       emptyOutDir: true,
+      minify: false,
     })
   ],
   test: {

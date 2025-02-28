@@ -1,3 +1,4 @@
+import "./register";
 import { highlightMiddleware } from "@highlight-run/hono";
 import { z, createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { apiReference } from "@scalar/hono-api-reference";

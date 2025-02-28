@@ -4,7 +4,11 @@ import packageJson from "../package.json";
 
 export default winston.createLogger({
   level: "info",
-  defaultMeta: { service: packageJson.name },
+  defaultMeta: {
+    service_name: packageJson.name,
+    service_version: config.commitRef,
+    environment: config.nodeEnv,
+  },
   transports: buildTransports(),
 });
 
